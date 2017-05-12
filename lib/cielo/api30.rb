@@ -4,6 +4,7 @@ require "cielo/api30/client"
 
 require "cielo/api30/address"
 require "cielo/api30/credit_card"
+require "cielo/api30/debit_card"
 require "cielo/api30/customer"
 require "cielo/api30/payment"
 require "cielo/api30/recurrent_payment"
