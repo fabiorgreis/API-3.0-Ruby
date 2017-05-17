@@ -47,7 +47,8 @@ module Cielo
                     :bar_code_number,
                     :digitable_line,
                     :address,
-                    :return_info
+                    :return_info,
+                    :authentication_url
 
       def initialize(amount, installments: 1)
         @amount = amount
@@ -90,6 +91,7 @@ module Cielo
         payment.return_code = data["ReturnCode"]
         payment.return_message = data["ReturnMessage"]
         payment.status = data["Status"]
+        payment.authentication_url = data["AuthenticationUrl"]
 
         payment.links = data["Links"]
         payment.extra_data_collection = data["ExtraDataCollection"]
@@ -101,7 +103,7 @@ module Cielo
         payment.digitable_line = data["DigitableLine"]
         payment.address = data["Address"]
         payment.return_info = ReturnInfo.new(payment.return_code)
-
+        
         payment
       end
 
